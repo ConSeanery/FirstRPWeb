@@ -55,6 +55,7 @@ Layout::pageTop('Csc206 Project');
  * Functions that support the createPost page
  */
 $fields = [
+	'id'     => ['integer'],
     'title'     => ['required', 'string'],
     'content'   => ['required', 'string'],
     'startDate' => ['required', 'date'],

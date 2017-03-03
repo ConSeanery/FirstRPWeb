@@ -59,6 +59,8 @@ BlogPost;
                 </button>
                 <a class="navbar-brand" href="index.php">Home</a>
 				<a class="navbar-brand" href="createPost.php">Post</a>
+				<a class="navbar-brand" href="tablePage.php">Pages</a>
+				<a class="navbar-brand" href="UpdatePost.php">Edit Pages</a>
 				
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->

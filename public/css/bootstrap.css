@@ -184,6 +184,7 @@ optgroup {
 table {
   border-spacing: 0;
   border-collapse: collapse;
+  
 }
 td,
 th {
@@ -6731,6 +6732,12 @@ button.close {
     display: table-cell !important;
   }
 }
+table{
+	border: 2px solid black;
+	}
+td{
+	border: 2px solid black;
+	}
 .visible-print-block {
   display: none !important;
 }
