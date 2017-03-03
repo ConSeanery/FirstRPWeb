@@ -189,6 +189,10 @@ td,
 th {
   padding: 0;
 }
+.BlogHead{
+	max-width: 40%;
+	width: 40%;
+}
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
   *,

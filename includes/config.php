@@ -1,9 +1,9 @@
 <?php
 // Define database connection parameters
-if (! defined('DB_USER')) define('DB_USER', 'csc206');
-if (! defined('DB_PASS')) define('DB_PASS', 'Geneva2017');
+if (! defined('DB_USER')) define('DB_USER', 'SamGreen');
+if (! defined('DB_PASS')) define('DB_PASS', 'Chester42');
 if (! defined('DB_HOST')) define('DB_HOST', 'localhost');
-if (! defined('DB_NAME')) define('DB_NAME', 'csc206_Green');
+if (! defined('DB_NAME')) define('DB_NAME', 'csc206');
 /**
  * These constants point to various places in the filesystem where you will store certain
  * types of files. For you windows / graphical people these are the folders that you see in
@@ -33,7 +33,7 @@ if (! defined('DB_NAME')) define('DB_NAME', 'csc206_Green');
  *
  */
 if (! defined('FS_ROOT')) define('FS_ROOT', $_SERVER['DOCUMENT_ROOT'] . '/../');
-if (! defined('FS_INCLUDES')) define('FS_INCLUDES',  FS_ROOT.'includes/');
+if (! defined('FS_INCLUDES')) define('FS_INCLUDES',  FS_ROOT . 'includes/');
 if (! defined('FS_TEMPLATES')) define('FS_TEMPLATES', FS_ROOT . 'templates/');
 /**
  * These constants define various locations on your website from your web browser's perspective and will
