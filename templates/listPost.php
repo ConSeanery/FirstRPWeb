@@ -29,6 +29,7 @@ supertable;
 public static function story($data)
     {
 		
+		
 		$id = $data['id'];
         $title = $data['title'];
         $startDate = $data['startDate'];
@@ -36,7 +37,9 @@ public static function story($data)
 		$realStartDate = date('y-m-d',strtotime($startDate));
 		$realEndDate = date('y-m-d',strtotime($endDate));
 			
-	
+		if(isset($_POST['delete'])){	
+        $sql = "DELETE FROM posts WHERE id = $id";  
+        echo "Deleted data successfully\n";}	
     
 		echo <<<story
 			<tr>
