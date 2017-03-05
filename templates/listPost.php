@@ -1,7 +1,9 @@
 
 
 <?php
+
 class listPost{
+	
  
    public static function stories($data)
     {
@@ -9,19 +11,25 @@ class listPost{
             Self::story($story);
         }
     }
-	 public static function makeTable($data)
-    {
+	
+	 function makeTable($data)
+    {       
+			
 	echo <<<supertable
+	<form id="listPostForm" action='tablePage.php' method="POST">
 	<table>	
-	<th>Title</th>
+		<th>id</th>
+		<th>Title</th>
 		<th>Started</th>
 		<th>Ended</th>
-		<th>Options</th>
+		<th colspan= "2">Options</th>
 supertable;
 	}
 		
 public static function story($data)
     {
+		
+		$id = $data['id'];
         $title = $data['title'];
         $startDate = $data['startDate'];
         $endDate = $data['endDate'];
@@ -32,6 +40,7 @@ public static function story($data)
     
 		echo <<<story
 			<tr>
+			<td>$id</td>                  
             <td>$title</td>
 			<td>$realStartDate</td>  
 			<td>$realEndDate</td>
@@ -39,7 +48,7 @@ public static function story($data)
                 <label class="col-md-3 control-label" for="submit"></label>
                 <div class="col-md-8">
                     <button id="submit" name="submit" value="Edit" class="btn btn-success">Edit</button>
-                    <button id="cancel" name="cancel" value="Delete" class="btn btn-info">Delete</button>
+					 <td><input name = "delete" type = "submit" id = "delete" value = "Delete"></td>
                 </div>
             </div></td>
 			</tr>.
@@ -54,6 +63,7 @@ story;
     {
 echo <<<superTable
 			</table>
+			</form>
 superTable;
 	}
 }

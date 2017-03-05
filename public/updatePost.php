@@ -25,12 +25,12 @@ Layout::pageTop('CSC206 Project');
                 $sql = 'select * from posts where id = ' . $_GET['id'];
                 $result = $db->query($sql);
                 showUpdateForm($result);
-            } elseif ( $requestType == 'POST' ) {
+            } else if ( $requestType == 'POST' ) {
                     //Validate data
                     // Save data
                     $sql = 'update posts set title= '. $_POST['title'] .'  where id=39'
             }
-            ?>
+			?>
 
 
         </section>

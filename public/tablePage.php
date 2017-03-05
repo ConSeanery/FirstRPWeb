@@ -26,6 +26,9 @@ listPost::makeTable('Csc206 Project');
          while ($post = $posts->fetch()) {
          // Call the method to create the layout for a post
           listPost::story($post);
+		if(isset($_POST['delete'])){	
+        $sql = "DELETE FROM posts WHERE id = $id";  
+        echo "Deleted data successfully\n";}	
      }
 listPost::endTable('Csc206 Project');
 
