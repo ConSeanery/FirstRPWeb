@@ -19,6 +19,7 @@ class news
      */
     public static function story($data)
     {
+		//$id = $data['id'];
         $title = $data['title'];
         $content = $data['content'];
 		$startDate = $data['startDate'];
@@ -35,4 +36,8 @@ class news
         </div>        
 story;
     }
+	
+	
+	
+	
 }

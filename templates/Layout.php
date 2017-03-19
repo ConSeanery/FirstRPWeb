@@ -19,6 +19,71 @@ BlogPost;
 
     }
 
+	
+	
+	public static function pageSide()
+    {
+		echo <<<SideStuff
+		
+		
+		
+		
+		<!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+
+                <!-- Blog Search Well -->
+                <div class="well">
+                    <h4>Search</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+                    </div>
+                    <!-- /.input-group -->
+                </div>
+
+                <!-- Blog Categories Well -->
+                <div class="well">
+                    <h4>Information</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Projects</a>
+                                </li>
+                                <li><a href="#">News</a>
+                                </li>
+                                <li><a href="#">Calender</a>
+                                </li>
+                                <li><a href="#">Staff</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4>Did You Know?</h4>
+                    <p>Game design was invented in 1958, when the first game called Tennis for Two was completely ignored because it wasn't created by a neck-beard. about 15 years later, Pong came out and didn't have a scoring system.</p>
+                </div>
+
+            </div>
+
+        </div>
+	
+	
+			
+			<!-- /.row -->
+
+        <hr>
+		
+SideStuff;
+	}
+		
     public static function pageTop()
     {
 		
@@ -60,7 +125,6 @@ BlogPost;
                 <a class="navbar-brand" href="index.php">Home</a>
 				<a class="navbar-brand" href="createPost.php">Post</a>
 				<a class="navbar-brand" href="tablePage.php">Pages</a>
-				<a class="navbar-brand" href="UpdatePost.php">Edit Pages</a>
 				
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->

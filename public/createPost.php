@@ -20,6 +20,7 @@ Layout::pageTop('Csc206 Project');
                 <?php
                 if ( $requestType == 'GET' ) {
                     // Display the form
+					
                     showForm();
                 } else if ( $requestType == 'POST' ) {
                     // Process data that was submitted
@@ -28,6 +29,7 @@ Layout::pageTop('Csc206 Project');
                     print_r($_POST);
                     echo '</pre>';
                     // pull the fields from the POST array.
+					//$id = $_GET['id'];
                     $title = $_POST['title'];
 					$image  = $_POST['image'];
                     $content = $_POST['content'];
@@ -41,16 +43,21 @@ Layout::pageTop('Csc206 Project');
                     $sql = "insert into posts (title, content, startDate, endDate) values ('" . $title . "', '" . $content . "', '" . $startDate . "', '" . $endDate . "');";
                     $db->query($sql);
                 }
+				
                 ?>
 
 
             </section>
         </div>
+		
+		<?php
+layout::pageSide('Csc206 Project');
+?>
     </div>
 
 <?php
 // Generate the page footer
-//Layout::pageBottom();
+
 /**
  * Functions that support the createPost page
  */
@@ -124,12 +131,13 @@ function showForm($data = null)
                 <label class="col-md-3 control-label" for="submit"></label>
                 <div class="col-md-8">
                     <button id="submit" name="submit" value="Submit" class="btn btn-success">Submit</button>
-                    <button id="cancel" name="cancel" value="Cancel" class="btn btn-info">Cancel</button>
                 </div>
             </div>
     
         </fieldset>
     </form>
 postform;
+
+
 Layout::pageBottom('CSC206 Project');
 }
