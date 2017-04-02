@@ -19,31 +19,31 @@ Layout::pageTop('CSC206 Project');
             <?php
             if ( $requestType == 'GET' ) {
 				if (isset($_SESSION["users"])){	
-					
-                $sql = 'select * from posts where id = ' . $_GET['id'];
+				$id = $_SESSION["users"];	
+                $sql = 'select * from users where id = ' . $id['id'];
                 $result = $db->query($sql);
                 $row = $result->fetch();
 				
-                $id = $row['id'];
-                $title= $row['title'];
-                $content= $row['content'];
-                $startDate= $row['startDate'];
-                $endDate= $row['endDate'];
+                
+                //$title= $row['title'];
+                //$content= $row['content'];
+                //$startDate= $row['startDate'];
+                //$endDate= $row['endDate'];
 				
                 echo <<<postform
 				
-                    <form id="createPostForm" action='deletePost.php' method="POST" class="form-horizontal">
+                    <form id="createPostForm" action='deleteUser.php' method="POST" class="form-horizontal">
                         <fieldset>
-						<p>Are you sure you want to DELETE this post?</p>
-                        <input type="hidden" name="id" value="$id">
+						<p>Are you sure you want to DELETE this user?</p>
+                        <input type="hidden" name="id" value="">
                             <!-- Form Name -->
-                            <legend>Delete Post</legend>
+                            <legend>Delete User</legend>
                             <!-- Button (Double) -->
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="submit"></label>
                                 <div class="col-md-8">
                                     <button id="submit" name="submit" value="Submit" class="editButton">Delete</button>
-                                   <a class="deleteButton" href="tablePage.php">Cancel</a>
+                                   <a class="deleteButton" href="index.php">Cancel</a>
                                 </div>
                             </div>
                         </fieldset>
@@ -55,13 +55,13 @@ postform;
 						}
             } elseif ( $requestType == 'POST' ) {
                 //Validate data
-                $id = $_POST['id'];
+                $id = $_SESSION["users"];
                 //$title = htmlspecialchars($_POST['title'], ENT_QUOTES);
                 //$content = htmlspecialchars($_POST['content'], ENT_QUOTES);
                 // Save data
-                $sql =  "delete from posts where id=$id";
+                $sql =  'delete from users where id= ' . $id['id'];
                 $result = $db->query($sql);
-                echo 'This Post was deleted successfully';
+                echo 'This user was deleted successfully';
             }
             ?>
 

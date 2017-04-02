@@ -5,9 +5,6 @@ class layout{
 		
         echo <<<BlogPost
 		
-                            
-                            
-		
                 
                 <p class="lead">
 by <a href="C:/xampp/htdocs/CSC206_Green/public/index.php">Samuel C. Green</a>
@@ -86,7 +83,8 @@ SideStuff;
 		
     public static function pageTop()
     {
-		
+		$nameTag = "";
+		if (isset($_SESSION["users"])) {$nameTag ='Hello, ' . $_SESSION["users"]['firstName'] . '!';}
 
         echo <<<PageTop
 <html lang="en">
@@ -122,9 +120,12 @@ SideStuff;
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+				
                 <a class="navbar-brand" href="index.php">Home</a>
 				<a class="navbar-brand" href="createPost.php">Post</a>
 				<a class="navbar-brand" href="tablePage.php">Pages</a>
+				
+				
 				
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -134,13 +135,21 @@ SideStuff;
                         <a href="#">About</a>
                     </li>
                     <li>
-                        <a href="#">Locations</a>
+                        <a href="deleteUser.php">Delete Account</a>
                     </li>
                     <li>
                         <a href="#">Contact</a>
                     </li>
                 </ul>
+				<a class="navbar-brand" href="createUser.php">Sign Up</a>
+				
+				<a class="navbar-brand" href="loginPage.php">Login</a>
+				<a class="navbar-brand" href="logout.php">logout</a>
+				<h2>$nameTag</h2>
+				
+				
             </div>
+			
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->

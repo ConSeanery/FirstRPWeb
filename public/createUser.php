@@ -11,7 +11,6 @@ $requestType = $_SERVER[ 'REQUEST_METHOD' ];
 // Generate the HTML for the top of the page
 Layout::pageTop('Csc206 Project');
 // Page content goes here
-//echo $_SESSION['user'],['firstname'];
 ?>
 
     <div class="container top25">
@@ -21,30 +20,36 @@ Layout::pageTop('Csc206 Project');
                 <?php
                 if ( $requestType == 'GET' ) {
                     // Display the form
-					if (isset($_SESSION['users'])){
+					
                     showForm();
-					}
-					else{echo '<p>Not Logged in</p>';}
                 } else if ( $requestType == 'POST' ) {
                     // Process data that was submitted
-                    echo '<h2>This is the data that was entered</h2>';
-                    echo '<pre>';
-                    print_r($_POST);
-                    echo '</pre>';
+                    //echo '<h2>This is the data that was entered</h2>';
+                   // echo '<pre>';
+                    //print_r($_POST);
+                    //echo '</pre>';
                     // pull the fields from the POST array.
-					//$id = $_GET['id'];
-                    $title = $_POST['title'];
-					$image  = $_POST['image'];
-                    $content = $_POST['content'];
-                    $startDate  = $_POST['startDate'];
-                    $endDate  = $_POST['endDate'];
+                   $firstName  = $_POST['firstName'];
+					$lastName   = $_POST['lastName'];
+                    $userName  = $_POST['email'];
+					$confirmPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+					
+					
                     // This SQL uses double quotes for the query string.  If a field is not a number (it's a string or a date) it needs
                     // to be enclosed in single quotes.  Note that right after values is a ( and a single quote.  Taht single quote comes right
                     // before the value of $title.  Note also that at the end of $title is a ', ' inside of double quotes.  What this will all render
                     // That will generate this piece of SQL:   values ('title text here', 'content text here', '2017-02-01 00:00:00'  and so
                     // on until the end of the sql command.
-                    $sql = "insert into posts (title, content, startDate, endDate) values ('" . $title . "', '" . $content . "', '" . $startDate . "', '" . $endDate . "');";
-                    $db->query($sql);
+                    $sql = "insert into users (firstName, lastName, email, password) values ('" . $firstName . "', '" . $lastName . "', '" . $userName . "', '" . $confirmPassword . "');";	
+					if($_POST['password'] == $_POST['tryPassword'] && $_POST['password'] != null)
+					{
+						$db->query($sql);
+						//foreach ($data) //{
+						{echo '<h2>Welcome, new user! You may now use admin functions on this site.</h2>';}
+										//}
+					}
+					else{echo '<h1>Password does not match. Try again.</h1>';}
+					
                 }
 				
                 ?>
@@ -66,68 +71,72 @@ layout::pageSide('Csc206 Project');
  */
 $fields = [
 	'id'     => ['integer'],
-    'title'     => ['required', 'string'],
-    'content'   => ['required', 'string'],
-    'startDate' => ['required', 'date'],
-    'endDate'   => ['required', 'date'],
-    'image'     => ['date']
+    'firstName'     => ['required', 'string'],
+    'password'   => ['required', 'string'],
+    'email'     => ['required', 'string']
 ];
 /**
  * Show the form
  */
 function showForm($data = null)
 {
-        $title = $data['title'];
-        $content = $data['content'];
-        $startDate = $data['startDate'];
-        $endDate = $data['endDate'];
-        $image = $data['image'];
+       $firstName = $data['firstName'];
+        $lastName = $data['lastName'];
+        $userName = $data['email'];
+		
+		$confirmPassword  = $data['password'];
+		
+		
+		
+	
     echo <<<postform
-    <form id="createPostForm" action='createPost.php' method="POST" class="form-horizontal">
+    <form id="createUserForm" action='createUser.php' method="POST" class="form-horizontal">
         <fieldset>
     
             <!-- Form Name -->
-            <legend>Create Post</legend>
+            <legend>Create User</legend>
     
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-3 control-label" for="title">Title</label>
+                <label class="col-md-3 control-label" for="firstName">First Name</label>
                 <div class="col-md-8">
-                    <input id="title" name="title" type="text" placeholder="post title" value="$title" class="form-control input-md" required="">                    
+                    <input id="firstName" name="firstName" type="text" placeholder="" value="$firstName" class="form-control input-md" required="">                    
                 </div>
             </div>
     
-            <!-- Textarea -->
-            <div class="form-group">
-                <label class="col-md-3 control-label" for="content">Content</label>
-                <div class="col-md-8">
-                    <textarea class="form-control" id="content" name="content">$content</textarea>
-                </div>
-            </div>
     
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-3 control-label" for="startDate">Effective Date</label>
+                <label class="col-md-3 control-label" for="lastName">Last Name</label>
                 <div class="col-md-8">
-                    <input id="startDate" name="startDate" type="text" placeholder="effective date" value="$startDate" class="form-control input-md" required="">
+                    <input id="lastName" name="lastName" type="text" placeholder="" value="$lastName" class="form-control input-md" required="">
                 </div>
             </div>
     
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-3 control-label" for="endDate">End Date</label>
+                <label class="col-md-3 control-label" for="email">Username</label>
                 <div class="col-md-8">
-                    <input id="endDate" name="endDate" type="text" placeholder="end date" value="$endDate" class="form-control input-md">
+                    <input id="email" name="email" type="text" placeholder="" value="$userName" class="form-control input-md">
+                </div>
+            </div>
+			
+			 <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="tryPassword">Password</label>
+                <div class="col-md-8">
+                    <input id="tryPassword" name="tryPassword" type="password" placeholder="" value="" class="form-control input-md">
+                </div>
+            </div>
+			
+			<!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="password">Confirm Password</label>
+                <div class="col-md-8">
+                    <input id="password" name="password" type="password" placeholder="" value="$confirmPassword" class="form-control input-md">
                 </div>
             </div>
     
-            <!-- File Button -->
-            <div class="form-group">
-                <label class="col-md-3 control-label" for="image">Image Upload</label>
-                <div class="col-md-8">
-                    <input id="image" name="image" class="input-file" value="$image" type="file">
-                </div>
-            </div>
     
             <!-- Button (Double) -->
             <div class="form-group">

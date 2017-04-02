@@ -18,9 +18,12 @@ Layout::pageTop('CSC206 Project');
 
             <?php
             if ( $requestType == 'GET' ) {
+				if (isset($_SESSION["users"])){
+                    
                 $sql = 'select * from posts where id = ' . $_GET['id'];
                 $result = $db->query($sql);
                 $row = $result->fetch();
+				
 				
                 $id = $row['id'];
                 $title= $row['title'];
@@ -88,6 +91,10 @@ Layout::pageTop('CSC206 Project');
                         </fieldset>
                     </form>
 postform;
+				}
+				else{echo '<p>Not Logged in</p>';}		
+				
+					
             } elseif ( $requestType == 'POST' ) {
                 //Validate data
                 $id = $_POST['id'];
@@ -98,6 +105,10 @@ postform;
                 $result = $db->query($sql);
                 echo 'This Post was updated successfully';
             }
+			
+			
+				
+
             ?>
 
 
