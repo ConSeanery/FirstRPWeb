@@ -29,9 +29,7 @@ Layout::pageTop('CSC206 Project');
 				
 				
 				if (!$result->size() == 0){	
-				$user = $result->fetch();
-				
-				
+				$user = $result->fetch();				
 				if (password_verify($input['password'], $user['password'])){
 					$_SESSION["users"] = $user;	
 					//session_start();
@@ -55,7 +53,7 @@ GoodKid;
         <fieldset>
     
             <!-- Form Name -->
-            <legend>Create User</legend>
+            <legend>Login</legend>
     
             
     

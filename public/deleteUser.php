@@ -25,10 +25,7 @@ Layout::pageTop('CSC206 Project');
                 $row = $result->fetch();
 				
                 
-                //$title= $row['title'];
-                //$content= $row['content'];
-                //$startDate= $row['startDate'];
-                //$endDate= $row['endDate'];
+                
 				
                 echo <<<postform
 				
@@ -56,11 +53,11 @@ postform;
             } elseif ( $requestType == 'POST' ) {
                 //Validate data
                 $id = $_SESSION["users"];
-                //$title = htmlspecialchars($_POST['title'], ENT_QUOTES);
-                //$content = htmlspecialchars($_POST['content'], ENT_QUOTES);
                 // Save data
                 $sql =  'delete from users where id= ' . $id['id'];
                 $result = $db->query($sql);
+				unset($_SESSION['username']);
+				session_destroy();
                 echo 'This user was deleted successfully';
             }
             ?>
