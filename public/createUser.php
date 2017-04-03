@@ -43,13 +43,16 @@ Layout::pageTop('Csc206 Project');
                     $sql = "insert into users (firstName, lastName, email, password) values ('" . $firstName . "', '" . $lastName . "', '" . $userName . "', '" . $confirmPassword . "');";	
 					if($_POST['password'] == $_POST['tryPassword'] && $_POST['password'] != null)
 					{
+						$input = $_POST;
+						$sql = "select * from users where email = '" . $input['email'] . "'";
+						$result = $db->query($sql);	
+						if ($result->size() == 0){
+						$sql = "insert into users (firstName, lastName, email, password) values ('" . $firstName . "', '" . $lastName . "', '" . $userName . "', '" . $confirmPassword . "');";	
 						$db->query($sql);
-						//foreach ($data) //{
 						{echo '<h2>Welcome, new user! You may now use admin functions on this site.</h2>';}
-										//}
+						}else{echo '<h1>Username already taken. Try again.</h1>';}							
 					}
-					else{echo '<h1>Password does not match. Try again.</h1>';}
-					
+					else{echo '<h1>Password does not match. Try again.</h1>';}	
                 }
 				
                 ?>
