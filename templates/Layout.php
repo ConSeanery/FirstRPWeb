@@ -41,7 +41,7 @@ BlogPost;
                     </div>
                     <!-- /.input-group -->
                 </div>
-
+				
                 <!-- Blog Categories Well -->
                 <div class="well">
                     <h4>Information</h4>
@@ -50,30 +50,26 @@ BlogPost;
                             <ul class="list-unstyled">
                                 <li><a href="#">Projects</a>
                                 </li>
-                                <li><a href="#">News</a>
+                                <li><a href="deleteUser.php">Delete Account</a>
                                 </li>
-                                <li><a href="#">Calender</a>
+                                <li><a href="aboutPage.php">About</a>
                                 </li>
-                                <li><a href="#">Staff</a>
+                                <li><a href="deleteUser.php">Delete Account</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <!-- /.row -->
                 </div>
-
+				
                 <!-- Side Widget Well -->
                 <div class="well">
                     <h4>Did You Know?</h4>
                     <p>Game design was invented in 1958, when the first game called Tennis for Two was completely ignored because it wasn't created by a neck-beard. about 15 years later, Pong came out and didn't have a scoring system.</p>
                 </div>
-
             </div>
-
         </div>
-	
-	
-			
+				
 			<!-- /.row -->
 
         <hr>

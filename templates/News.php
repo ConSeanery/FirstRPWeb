@@ -19,20 +19,20 @@ class news
      */
     public static function story($data)
     {
-		//$id = $data['id'];
         $title = $data['title'];
         $content = $data['content'];
 		$startDate = $data['startDate'];
 		$endDate = $data['endDate'];
 		$realStartDate = date('y-m-d h:i:s',strtotime($startDate));
 		$realEndDate = date('y-m-d h:i:s',strtotime($endDate));
-		$image = "images/" . $data['image'];
-         //$author = $data['firstname'] . ' ' . $data['lastname'];
+		$image = '/images/' . $data['image'];
         echo <<<story
         <div class="top10">
             <h2>$title</h2>
-            <p>$content</p>
+			<img src="$image">
+			<p>$content</p>
 			<p>$realStartDate - $realEndDate</p>
+			
         </div>        
 story;
     }
