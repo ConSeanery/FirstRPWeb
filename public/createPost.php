@@ -33,9 +33,8 @@ Layout::pageTop('Csc206 Project');
                     echo '</pre>';
                     // pull the fields from the POST array.
 					
+					
                     $title = $_POST['title'];
-					//$image  = $_FILES['image'];
-					//$file = $_FILES['imagename']['tmp_name'];
 					// Check for a valid file upload
 					$input = $_POST;
 					
@@ -64,12 +63,7 @@ Layout::pageTop('Csc206 Project');
                 move_uploaded_file($file, $uploaded_file);
                 // Display the image
                 //showImage($input, $_FILES[ 'image' ]);
- echo '<pre>';
-        print_r($input);
-        echo '</pre><br>';
-        echo '<pre>';
-        print_r($_FILES);
-        echo '</pre><br>';
+ 
             }
         }}else{$fileName = "logo.bmp";} 
             //not file

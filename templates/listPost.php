@@ -19,7 +19,7 @@ public static function makeTable()
 {			
 	echo <<<supertable
 	<form id="listPostForm" action='updatePost.php' method="GET">
-	<table>	
+	<table class = "listTable">	
 		
 		<th>Title</th>
 		<th>Started</th>

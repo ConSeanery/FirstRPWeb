@@ -9,7 +9,7 @@ class layout{
                 <p class="lead">
 by <a href="C:/xampp/htdocs/CSC206_Green/public/index.php">Samuel C. Green</a>
                 </p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+         
                 <hr>
 				<a href="#"><img src="images/logo.bmp" alt=""></a>
 BlogPost;
@@ -30,29 +30,26 @@ BlogPost;
 
                 <!-- Blog Search Well -->
                 <div class="well">
-                    <h4>Search</h4>
+                    <h4>The DevLeak Mission</h4>
                     <div class="input-group">
-                        <input type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
+                        
+                    <p>Welcome to Devleak! Our mission is to document the struggles and goals of our game developers at Orb Games Inc in order to shed light on 
+					the joys and hardships of video game testing and developement. If you are interesting in becoming a blogger for our site, use the sign up tab and share your thoughts.</p> 
+                                
+                     
                     </div>
                     <!-- /.input-group -->
                 </div>
 				
                 <!-- Blog Categories Well -->
                 <div class="well">
-                    <h4>Information</h4>
+                    <h4>Options</h4>
                     <div class="row">
                         <div class="col-lg-6">
                             <ul class="list-unstyled">
-                                <li><a href="#">Projects</a>
+                                <li><a href="createUser.php">Sign Up</a>
                                 </li>
-                                <li><a href="deleteUser.php">Delete Account</a>
-                                </li>
-                                <li><a href="aboutPage.php">About</a>
+                                <li><a href="loginPage.php">Login</a>
                                 </li>
                                 <li><a href="deleteUser.php">Delete Account</a>
                                 </li>
@@ -127,15 +124,7 @@ SideStuff;
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="deleteUser.php">Delete Account</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
+                    
                 </ul>
 				<a class="navbar-brand" href="createUser.php">Sign Up</a>
 				

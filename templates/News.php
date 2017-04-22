@@ -29,8 +29,12 @@ class news
         echo <<<story
         <div class="top10">
             <h2>$title</h2>
-			<img src="$image">
-			<p>$content</p>
+			<table>
+			<tr>
+			<td><img src="$image"></td>
+			<td><p>$content</p></td>
+			</tr>
+			</table>
 			<p>$realStartDate - $realEndDate</p>
 			
         </div>        

@@ -25,18 +25,24 @@ Layout::pageTop('CSC206 Project');
                 $row = $result->fetch();
 				
 				
+					
+					
+				
+				
                 $id = $row['id'];
                 $title= $row['title'];
                 $content= $row['content'];
                 $startDate= $row['startDate'];
                 $endDate= $row['endDate'];
+				$image = $row['image'];
+				
 				
                 echo <<<postform
-                    <form id="createPostForm" action='updatePost.php' method="POST" class="form-horizontal">
+                    <form id="createPostForm" action='updatePost.php' method="POST" class="form-horizontal" enctype="multipart/form-data">
                         <fieldset>
                         <input type="hidden" name="id" value="$id">
                             <!-- Form Name -->
-                            <legend>Create Post</legend>
+                            <legend>Edit Post</legend>
                     
                             <!-- Text input-->
                             <div class="form-group">
@@ -70,14 +76,14 @@ Layout::pageTop('CSC206 Project');
                                 </div>
                             </div>
                     
-                            <!-- File Button
+                            
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="image">Image Upload</label>
                                 <div class="col-md-8">
-                                    <input id="image" name="image" class="input-file" value="$image" type="file">
+                                    <input id="image" name="imagename" class="input-file" value="$image" type="file">
                                 </div>
                             </div>
-                            -->
+                           
                     
                             <!-- Button (Double) -->
                             <div class="form-group">
@@ -97,11 +103,43 @@ postform;
 					
             } elseif ( $requestType == 'POST' ) {
                 //Validate data
+				$input = $_POST;
+				$file = $_FILES[ 'imagename' ][ 'tmp_name' ];
+				$fileName = $_FILES[ 'imagename' ][ 'name' ];
                 $id = $_POST['id'];
                 $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
                 $content = htmlspecialchars($_POST['content'], ENT_QUOTES);
+				
+				if (!$_FILES[ 'imagename' ][ 'tmp_name' ] == 0){
+					
+        if ( !is_uploaded_file($file) ) {
+            echo '<h3>Error</h3><p>File was not uploaded via POST form.</p>';
+            exit;
+        }
+		
+        if ( file_exists($file) ) {
+            $imagesizedata = getimagesize($file);
+            if ( $imagesizedata === false ) {
+                //not image
+                echo '<h3>Error</h3><p>Uploaded file is not an image.</p>';
+                exit;
+            } else {
+                //image information
+                echo '<h3>Success</h3><p>The image was uploaded</p>';
+                //echo '<pre>' . print_r($imagesizedata) . '</pre>';
+                // Copy image to permanent location
+                $uploaded_file = $_SERVER[ 'DOCUMENT_ROOT' ] . '/images/' . $_FILES[ 'imagename' ][ 'name' ];
+                // Move file to permanent location
+                move_uploaded_file($file, $uploaded_file);
+                // Display the image
+                //showImage($input, $_FILES[ 'image' ]);
+ 
+            }
+        }}else{$fileName = "logo.bmp";} 
                 // Save data
-                $sql = "update posts set title = '$title', content= '$content'  where id=$id;";
+				
+				$image = $fileName;
+                $sql = "update posts set title = '$title', content= '$content', image= '$image' where id=$id;";
                 $result = $db->query($sql);
                 echo 'This Post was updated successfully';
             }
@@ -116,11 +154,7 @@ postform;
     </div>
 
     <div class="col-md-4">
-        <section class="content">
-            <h1>Posts List</h1>
-            <p>Current and active posts.</p>
-
-        </section>
+        
     </div>
 </div>
 

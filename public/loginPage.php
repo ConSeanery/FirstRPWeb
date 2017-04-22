@@ -36,7 +36,7 @@ Layout::pageTop('CSC206 Project');
 					echo <<<GoodKid
 				<h1>You are now logged in.</h1>
 GoodKid;
-				}else{echo '<h1>You entered a wrong username/password combination.</h1>';}}}
+				}else{echo '<h1>You entered a wrong username/password combination.</h1>'; showForm(); }}}
             	
                function showForm($data = null)
 			{

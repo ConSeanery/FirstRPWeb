@@ -50,9 +50,9 @@ Layout::pageTop('Csc206 Project');
 						$sql = "insert into users (firstName, lastName, email, password) values ('" . $firstName . "', '" . $lastName . "', '" . $userName . "', '" . $confirmPassword . "');";	
 						$db->query($sql);
 						{echo '<h2>Welcome, new user! You may now use admin functions on this site.</h2>';}
-						}else{echo '<h1>Username already taken. Try again.</h1>';}							
+						}else{echo '<h1>Username already taken. Try again.</h1>'; showForm();}							
 					}
-					else{echo '<h1>Password does not match. Try again.</h1>';}	
+					else{echo '<h1>Password does not match. Try again.</h1>'; showForm();}	
                 }
 				
                 ?>

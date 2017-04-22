@@ -27,14 +27,25 @@ Layout::pageTop('CSC206 Project');
                 $content= $row['content'];
                 $startDate= $row['startDate'];
                 $endDate= $row['endDate'];
+				$realStartDate = date('y-m-d h:i:s',strtotime($startDate));
+				$realEndDate = date('y-m-d h:i:s',strtotime($endDate));
+				$image = '/images/' . $row['image'];
 				
                 echo <<<post
 				
-                    <h2>$title</h2>
-					<div class ="BlockText">
-					<p>$content</p>
-					</div>
-					<p>$startDate - $endDate</p>
+                    <div class="blocktext">
+            <h2>$title</h2>
+			<table>
+			<tr>
+			<td><img src="$image"></td>
+			</tr>
+			<tr>
+			<td><p>$content</p></td>
+			</tr>
+			</table>
+			<p>$realStartDate - $realEndDate</p>
+			
+        </div>        
 					
 post;
             } elseif ( $requestType == 'POST' ) {
