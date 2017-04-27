@@ -64,7 +64,7 @@ Layout::pageTop('CSC206 Project');
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="startDate">Effective Date</label>
                                 <div class="col-md-8">
-                                    <input id="startDate" name="startDate" type="text" placeholder="yyyy/mm/dd" value="$startDate" class="form-control input-md" required="">
+                                    <input id="startDate" name="startDate" type="text" placeholder="yyyy/mm/dd" class="form-control input-md" required="">
                                 </div>
                             </div>
                     
@@ -72,7 +72,7 @@ Layout::pageTop('CSC206 Project');
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="endDate">End Date</label>
                                 <div class="col-md-8">
-                                    <input id="endDate" name="endDate" type="text" placeholder="yyyy/mm/dd" value="$endDate" class="form-control input-md">
+                                    <input id="endDate" name="endDate" type="text" placeholder="yyyy/mm/dd" class="form-control input-md">
                                 </div>
                             </div>
                     
@@ -109,6 +109,8 @@ postform;
                 $id = $_POST['id'];
                 $title = htmlspecialchars($_POST['title'], ENT_QUOTES);
                 $content = htmlspecialchars($_POST['content'], ENT_QUOTES);
+				$startDate = $_POST['startDate'];
+				$endDate = $_POST['endDate'];
 				
 				if (!$_FILES[ 'imagename' ][ 'tmp_name' ] == 0){
 					
@@ -139,7 +141,7 @@ postform;
                 // Save data
 				
 				$image = $fileName;
-                $sql = "update posts set title = '$title', content= '$content', image= '$image' where id=$id;";
+                $sql = "update posts set title = '$title', content= '$content', image= '$image', startDate= '$startDate', endDate= '$endDate' where id=$id;";
                 $result = $db->query($sql);
                 echo 'This Post was updated successfully';
             }

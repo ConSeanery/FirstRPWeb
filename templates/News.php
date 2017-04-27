@@ -23,8 +23,8 @@ class news
         $content = $data['content'];
 		$startDate = $data['startDate'];
 		$endDate = $data['endDate'];
-		$realStartDate = date('y-m-d h:i:s',strtotime($startDate));
-		$realEndDate = date('y-m-d h:i:s',strtotime($endDate));
+		$realStartDate = date('m-d-y h:i:s',strtotime($startDate));
+		$realEndDate = date('m-d-y h:i:s',strtotime($endDate));
 		$image = '/images/' . $data['image'];
         echo <<<story
         <div class="top10">

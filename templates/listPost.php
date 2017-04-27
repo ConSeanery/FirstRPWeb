@@ -38,8 +38,8 @@ public static function story($data)
         $title = $data['title'];
         $startDate = $data['startDate'];
         $endDate = $data['endDate'];
-		$realStartDate = date('y-m-d',strtotime($startDate));
-		$realEndDate = date('y-m-d',strtotime($endDate));
+		$realStartDate = date('m-d-y h:i:s',strtotime($startDate));
+		$realEndDate = date('m-d-y h:i:s',strtotime($endDate));
 			
     
 		echo <<<story

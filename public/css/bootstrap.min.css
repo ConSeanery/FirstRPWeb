@@ -19,7 +19,8 @@
  
 
  table{margin-left: 0px; }
-.listTable{}
+.listTable{ width: 90%;}
+.listTable td{ max-width: 80px;}
 .blocktext { margin: 5px; margin-left: 100px; margin-right: 100px; padding: 10px; background-color: rgb(200,200,200); border: 2px solid black; width: 100%;}
 
  

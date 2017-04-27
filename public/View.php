@@ -27,8 +27,8 @@ Layout::pageTop('CSC206 Project');
                 $content= $row['content'];
                 $startDate= $row['startDate'];
                 $endDate= $row['endDate'];
-				$realStartDate = date('y-m-d h:i:s',strtotime($startDate));
-				$realEndDate = date('y-m-d h:i:s',strtotime($endDate));
+				$realStartDate = date('m-d-y h:i:s',strtotime($startDate));
+				$realEndDate = date('m-d-y h:i:s',strtotime($endDate));
 				$image = '/images/' . $row['image'];
 				
                 echo <<<post
