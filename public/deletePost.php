@@ -56,8 +56,6 @@ postform;
             } elseif ( $requestType == 'POST' ) {
                 //Validate data
                 $id = $_POST['id'];
-                //$title = htmlspecialchars($_POST['title'], ENT_QUOTES);
-                //$content = htmlspecialchars($_POST['content'], ENT_QUOTES);
                 // Save data
                 $sql =  "delete from posts where id=$id";
                 $result = $db->query($sql);

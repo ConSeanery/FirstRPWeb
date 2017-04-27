@@ -33,19 +33,14 @@ Layout::pageTop('CSC206 Project');
 				
                 echo <<<post
 				
-                    <div class="blocktext">
+                    
             <h2>$title</h2>
-			<table>
-			<tr>
-			<td><img src="$image"></td>
-			</tr>
-			<tr>
-			<td><p>$content</p></td>
-			</tr>
-			</table>
+			<img src="$image">
+			<div class="blocktext">
+			<p>$content</p>
+			 </div> 
 			<p>$realStartDate - $realEndDate</p>
-			
-        </div>        
+              
 					
 post;
             } elseif ( $requestType == 'POST' ) {

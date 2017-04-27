@@ -6,6 +6,7 @@
 
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+	background-image: url("FlashPattern.bmp");
 }
 
 .top10{width: 80%; max-width: 80%; margin: 30px;}
@@ -15,5 +16,5 @@ footer {
     margin: 50px 0;
 }
 
- .page{background-color: rgb(100,100,100);}
+ .page{background-color: rgb(100,100,100); background-image: url("FlashPattern.bmp");}
 

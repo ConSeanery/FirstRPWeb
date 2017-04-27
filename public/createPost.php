@@ -146,7 +146,7 @@ function showForm($data = null)
             <div class="form-group">
                 <label class="col-md-3 control-label" for="startDate">Effective Date</label>
                 <div class="col-md-8">
-                    <input id="startDate" name="startDate" type="text" placeholder="effective date" value="$startDate" class="form-control input-md" required="">
+                    <input id="startDate" name="startDate" type="text" placeholder="yyyy/mm/dd" value="$startDate" class="form-control input-md" required="">
                 </div>
             </div>
     
@@ -154,7 +154,7 @@ function showForm($data = null)
             <div class="form-group">
                 <label class="col-md-3 control-label" for="endDate">End Date</label>
                 <div class="col-md-8">
-                    <input id="endDate" name="endDate" type="text" placeholder="end date" value="$endDate" class="form-control input-md">
+                    <input id="endDate" name="endDate" type="text" placeholder="yyyy/mm/dd" value="$endDate" class="form-control input-md">
                 </div>
             </div>
     
