@@ -1,20 +1,31 @@
 <?php
-// Load all application files and configurations
 require($_SERVER[ 'DOCUMENT_ROOT' ] . '/../includes/application_includes.php');
+
 // Include the HTML layout class
 require_once(FS_TEMPLATES . 'Layout.php');
+require_once(FS_TEMPLATES . 'listPost.php');
 require_once(FS_TEMPLATES . 'News.php');
+
 // Connect to the database
 $db = new Database(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-// Initialize variables
-$requestType = $_SERVER[ 'REQUEST_METHOD' ];
-// Generate the HTML for the top of the page
-Layout::pageTop('CSC206 Project');
-?>
+// Get the stories for column 1 from the database
+$sql = 'select * from posts';
+$sql2 = 'select * from audio';
 
+$posts = $db->query($sql);
+$sermons = $db->query($sql2);
+// Run a simple query that will be rendered in column 2 below
+$sql = 'select id, name, description from pages';
+$sql2 = 'select id, title, url from audio';
+$res = $db->query($sql);
+$res = $db->query($sql2);
+
+Layout::pageTop('Csc206 Project');
+
+?>
 <div class="container top25">
-    <div class="col-md-8">
-        <section class="content">
+       
+            <section class="content">
 
             <?php
             if ( $requestType == 'GET' ) {
@@ -23,11 +34,6 @@ Layout::pageTop('CSC206 Project');
                 $sql = 'select * from posts where id = ' . $_GET['id'];
                 $result = $db->query($sql);
                 $row = $result->fetch();
-				
-				
-					
-					
-				
 				
                 $id = $row['id'];
                 $title= $row['title'];
@@ -53,11 +59,13 @@ Layout::pageTop('CSC206 Project');
                             </div>
                     
                             <!-- Textarea -->
+							<div class="postText">
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="content">Content</label>
+                                <label class="col-md-3 control-label" for="content">Post</label>
                                 <div class="col-md-8">
                                     <textarea class="form-control" id="content" name="content">$content</textarea>
-                                </div>
+                                </div>	
+							</div>
                             </div>
                     
                             <!-- Text input-->
@@ -137,7 +145,7 @@ postform;
                 //showImage($input, $_FILES[ 'image' ]);
  
             }
-        }}else{$fileName = "logo.bmp";} 
+        }}else{$fileName = "logo.jpg";} 
                 // Save data
 				
 				$image = $fileName;
@@ -153,14 +161,34 @@ postform;
 
 
         </section>
-    </div>
-
-    <div class="col-md-4">
-        
-    </div>
+  </div>
 </div>
 
+<?php
+		layout::pageSide('Csc206 Project');	
+		echo <<<yes
+		<!-- Side Widget Well -->
+                <div class="well">
+                    <h4>Audio Sermons</h4>
+yes;
+					
+while ($sermon = $sermons->fetch()) {
+         // Call the method to create the layout for a post
+          News::sermon($sermon);
+		   
+     }		 
+	 
+	 echo <<<end
+					
+                </div>
+            </div>
+        </div>
+				
+			<!-- /.row -->
 
+        <hr>
+end;
+?>
 
 
 <?php

@@ -3,7 +3,7 @@
 
 <?php
 
-class listPost{
+class listAudio{
 	
  
    public static function stories($data)
@@ -19,10 +19,10 @@ public static function makeTable()
 {			
 	echo <<<supertable
 	<form id="listPostForm" action='updatePost.php' method="GET">
-	<table class= "listTable">	
-		<th>Event</th>
-		<th >Start Date</th>
-		<th>End Date</th>
+	<table class = "listTable">	
+		
+		<th>Title</th>
+		<th>author</th>
 		<th colspan= "3">Options</th>
 supertable;
 }
@@ -35,44 +35,37 @@ public static function story($data)
 		
 		$id = $data['id'];
         $title = $data['title'];
-        $startDate = $data['startDate'];
-        $endDate = $data['endDate'];
-		$realStartDate = date('m-d-y',strtotime($startDate));
-		$realEndDate = date('m-d-y', strtotime($endDate));
+		$url = $data['url'];
+		$author = $data['author'];
 			
     if (isset($_SESSION['users'])){
 		echo <<<story
 			<tr>
 			                 
-            <td><p>$title</p></td>
-			<td><p>$realStartDate</p></td>  
-			<td><p>$realEndDate</p></td>
-			<td><a class="audioLinks" href="/View.php?id=$id">View</a></td>
-            <td><a class="editButton" href="/updatePost.php?id=$id">Edit</a></td>
-			<td><a class="deleteButton" href="/deletePost.php?id=$id">Delete</a></td>
-					 
+            <td>$title</td>
+			<td>$author</td>
+					<td><a class="audioLinks" href="$url" id=$id">Listen</a></td>
+                    <td><a class="editButton" href="/updateAudio.php?id=$id">Edit</a></td>
+					 <td><a class="deleteButton" href="/deleteAudio.php?id=$id">Delete</a></td>
                 </div>
             </div>
 			</tr>.
 story;
 	}
-	else{
+		else{ 
 		echo <<<story
 			<tr>
 			                 
-            <td><p>$title</p></td>
-			<td><p>$realStartDate</p></td>  
-			<td><p>$realEndDate</p></td>
+            <td>$title</td>
+			<td>$author</td>
 			<td><p>...</p></td>
 			<td><p>...</p></td>
-			<td><a class="audioLinks" href="/View.php?id=$id">View</a></td>
-    
-					 
+			<td><a class="audioLinks" href="$url" id=$id">Listen</a></td> 
                 </div>
             </div>
 			</tr>.
 story;
-	}
+}
 		
 			
 

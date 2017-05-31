@@ -20,21 +20,19 @@ Layout::pageTop('CSC206 Project');
             if ( $requestType == 'GET' ) {
 				if (isset($_SESSION["users"])){	
 					
-                $sql = 'select * from posts where id = ' . $_GET['id'];
+                $sql = 'select * from audio where id = ' . $_GET['id'];
                 $result = $db->query($sql);
                 $row = $result->fetch();
 				
                 $id = $row['id'];
                 $title= $row['title'];
-                $content= $row['content'];
-                $startDate= $row['startDate'];
-                $endDate= $row['endDate'];
+                $url= $row['url'];
 				
                 echo <<<postform
 				
-                    <form id="createPostForm" action='deletePost.php' method="POST" class="form-horizontal">
+                    <form id="createPostForm" action='deleteAudio.php' method="POST" class="form-horizontal">
                         <fieldset>
-						<p>Are you sure you want to DELETE this post?</p>
+						<p>Are you sure you want to DELETE this sermon?</p>
                         <input type="hidden" name="id" value="$id">
                             <!-- Form Name -->
                             <legend>Delete Post</legend>
@@ -57,9 +55,9 @@ postform;
                 //Validate data
                 $id = $_POST['id'];
                 // Save data
-                $sql =  "delete from posts where id=$id";
+                $sql =  "delete from audio where id=$id";
                 $result = $db->query($sql);
-                echo 'This Post was deleted successfully';
+                echo 'This Sermon was deleted successfully';
 				header("Location: tablePage.php");
             }
             ?>
