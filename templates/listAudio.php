@@ -20,7 +20,6 @@ public static function makeTable()
 	echo <<<supertable
 	<form id="listPostForm" action='updatePost.php' method="GET">
 	<table class = "listTable">	
-		
 		<th>Title</th>
 		<th>author</th>
 		<th colspan= "3">Options</th>
@@ -40,8 +39,7 @@ public static function story($data)
 			
     if (isset($_SESSION['users'])){
 		echo <<<story
-			<tr>
-			                 
+			<tr>               
             <td>$title</td>
 			<td>$author</td>
 					<td><a class="audioLinks" href="$url" id=$id">Listen</a></td>
@@ -49,13 +47,12 @@ public static function story($data)
 					 <td><a class="deleteButton" href="/deleteAudio.php?id=$id">Delete</a></td>
                 </div>
             </div>
-			</tr>.
+			</tr>
 story;
 	}
 		else{ 
 		echo <<<story
-			<tr>
-			                 
+			<tr>             
             <td>$title</td>
 			<td>$author</td>
 			<td><p>...</p></td>
@@ -63,7 +60,7 @@ story;
 			<td><a class="audioLinks" href="$url" id=$id">Listen</a></td> 
                 </div>
             </div>
-			</tr>.
+			</tr>
 story;
 }
 		
@@ -77,10 +74,5 @@ echo <<<superTable
 			</table>
 			</form>
 superTable;
-
 	}
-	
-
-
-
 }

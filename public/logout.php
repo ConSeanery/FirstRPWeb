@@ -25,6 +25,7 @@ Layout::pageTop('Csc206 Project');
 ?>
 
 <div class="container top25">
+
         <section class="content">
 
 <?php
@@ -41,24 +42,13 @@ echo '<h1>You have been logged out.</h1>';
 </div>
 </div>
 
+
 <?php
 		layout::pageSide('Csc206 Project');	
-		echo <<<yes
-		<!-- Side Widget Well -->
-                <div class="well">
-                    <h4>Audio Sermons</h4>
-yes;
-					
-while ($sermon = $sermons->fetch()) {
-         // Call the method to create the layout for a post
-          News::sermon($sermon);
-		   
-     }		 
+		
 	 
 	 echo <<<end
 					
-                </div>
-            </div>
         </div>
 				
 			<!-- /.row -->

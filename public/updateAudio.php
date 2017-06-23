@@ -1,20 +1,33 @@
 <?php
-// Load all application files and configurations
 require($_SERVER[ 'DOCUMENT_ROOT' ] . '/../includes/application_includes.php');
+
 // Include the HTML layout class
 require_once(FS_TEMPLATES . 'Layout.php');
+require_once(FS_TEMPLATES . 'listPost.php');
 require_once(FS_TEMPLATES . 'News.php');
+
 // Connect to the database
 $db = new Database(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-// Initialize variables
-$requestType = $_SERVER[ 'REQUEST_METHOD' ];
-// Generate the HTML for the top of the page
-Layout::pageTop('CSC206 Project');
+// Get the stories for column 1 from the database
+$sql = 'select * from posts';
+$sql2 = 'select * from audio';
+
+$posts = $db->query($sql);
+$sermons = $db->query($sql2);
+// Run a simple query that will be rendered in column 2 below
+$sql = 'select id, name, description from pages';
+$sql2 = 'select id, title, url from audio';
+$res = $db->query($sql);
+$res = $db->query($sql2);
+
+Layout::pageTop('Csc206 Project');
+
 ?>
 
 <div class="container top25">
-    <div class="col-md-8">
-        <section class="content">
+       
+            <section class="content">
+        
 
             <?php
             if ( $requestType == 'GET' ) {
@@ -23,8 +36,6 @@ Layout::pageTop('CSC206 Project');
                 $sql = 'select * from audio where id = ' . $_GET['id'];
                 $result = $db->query($sql);
                 $row = $result->fetch();
-				
-
                 $id = $row['id'];
                 $title= $row['title'];
                 $url= $row['url'];
@@ -68,16 +79,15 @@ Layout::pageTop('CSC206 Project');
                 <label class="col-md-3 control-label" for="submit"></label>
                 <div class="col-md-8">
                     <button id="submit" name="submit" value="Submit" class="btn btn-success">Submit</button>
+					<a class="deleteButton" href="audioPage.php">Cancel</a>
                 </div>
             </div>
-    
+		
         </fieldset>
     </form>
 postform;
 				}
-				else{echo '<p>Not Logged in</p>';}		
-				
-					
+				else{echo '<p>Not Logged in</p>';}			
             } elseif ( $requestType == 'POST' ) {
                 //Validate data
 				
@@ -90,23 +100,37 @@ postform;
                 $sql = "update audio set title= '$title', url= '$url', author= '$author' where id=$id;";
                 $result = $db->query($sql);
                 echo 'This Link was updated successfully';
-            }
-			
-			
-				
+            }	
 
             ?>
-
-
-        </section>
-    </div>
-
-    <div class="col-md-4">
-        
+      </section>  
     </div>
 </div>
 
+<?php
+		layout::pageSide('Csc206 Project');	
+		
+		echo <<<yes
 
+		<!-- Side Widget Well -->
+		
+		 
+                 
+
+yes;
+					
+ 
+	 
+	 echo <<<end
+					
+            
+       </div>
+	
+			<!-- /.row -->
+
+        <hr>
+end;
+?>
 
 
 <?php

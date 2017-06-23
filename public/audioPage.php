@@ -46,14 +46,10 @@ listAudio::makeTable('Csc206 Project');
          // Call the method to create the layout for a post
           listAudio::story($sermon);
 		
-										}
-	 foreach ($sermons as $sermon)			{
-       $sermon['url'] = substr($sermon['url'], 0, 35) . '...';
 										}									
 listAudio::endTable('Csc206 Project');
 for ($i=1; $i<=$total_pages; $i++) { 
-    echo " <div class='searchPageLink'><a href='audioPage.php?page=".$i."'>".$i."</a></div>"; 
-	
+    echo " <div class='searchPageLink'><a href='audioPage.php?page=".$i."'>".$i."</a></div>"; 	
 }; 
 
 ?>
@@ -66,6 +62,7 @@ for ($i=1; $i<=$total_pages; $i++) {
 		layout::pageSide('Csc206 Project');	
 		echo <<<yes
 		<!-- Side Widget Well -->
+		<div class="col-md-4">
                 <div class="well">
                     <h4>Audio Sermons</h4>
 yes;

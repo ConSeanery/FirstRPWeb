@@ -25,7 +25,7 @@ $res = $db->query($sql2);
 Layout::pageTop('Csc206 Project');
 
 ?>
- <h1>New Events!</h1>
+ <h2>New Events!</h2>
 <?php
  // Loop through the posts and display them
  
@@ -42,6 +42,7 @@ Layout::pageTop('Csc206 Project');
 		layout::pageSide('Csc206 Project');	
 		echo <<<yes
 		<!-- Side Widget Well -->
+		 <div class="col-md-4">
                 <div class="well">
                     <h4>Audio Sermons</h4>
 yes;
@@ -56,8 +57,8 @@ while ($sermon = $sermons->fetch()) {
 					
                 </div>
             </div>
-        </div>
-				
+       </div>
+	
 			<!-- /.row -->
 
         <hr>

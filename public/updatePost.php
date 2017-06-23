@@ -30,17 +30,17 @@ Layout::pageTop('Csc206 Project');
             <?php
             if ( $requestType == 'GET' ) {
 				if (isset($_SESSION["users"])){
-                    
+             
                 $sql = 'select * from posts where id = ' . $_GET['id'];
                 $result = $db->query($sql);
                 $row = $result->fetch();
-				
                 $id = $row['id'];
                 $title= $row['title'];
                 $content= $row['content'];
                 $startDate= $row['startDate'];
                 $endDate= $row['endDate'];
 				$image = $row['image'];
+			
 				
 				
                 echo <<<postform
@@ -70,17 +70,17 @@ Layout::pageTop('Csc206 Project');
                     
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="startDate">Effective Date</label>
+                                <label class="col-md-3 control-label" for="startDate">Event Date</label>
                                 <div class="col-md-8">
-                                    <input id="startDate" name="startDate" type="text" placeholder="yyyy/mm/dd" class="form-control input-md" required="">
+                                    <input id="startDate" name="startDate" type="date" value="$startDate" class="form-control input-md" required="">
                                 </div>
                             </div>
                     
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="endDate">End Date</label>
+                                <label class="col-md-3 control-label" for="endDate">Time</label>
                                 <div class="col-md-8">
-                                    <input id="endDate" name="endDate" type="text" placeholder="yyyy/mm/dd" class="form-control input-md">
+                                    <input id="endDate" name="endDate" type="time" value="$endDate"  class="form-control input-md">
                                 </div>
                             </div>
                     
@@ -105,11 +105,14 @@ Layout::pageTop('Csc206 Project');
                         </fieldset>
                     </form>
 postform;
+
 				}
 				else{echo '<p>Not Logged in</p>';}		
 				
 					
             } elseif ( $requestType == 'POST' ) {
+				
+				
                 //Validate data
 				$input = $_POST;
 				$file = $_FILES[ 'imagename' ][ 'tmp_name' ];
@@ -152,22 +155,22 @@ postform;
                 $sql = "update posts set title = '$title', content= '$content', image= '$image', startDate= '$startDate', endDate= '$endDate' where id=$id;";
                 $result = $db->query($sql);
                 echo 'This Post was updated successfully';
+				header("Location: index.php");
             }
 			
-			
-				
 
             ?>
 
 
         </section>
-  </div>
+	</div>
 </div>
 
 <?php
 		layout::pageSide('Csc206 Project');	
 		echo <<<yes
 		<!-- Side Widget Well -->
+		<div class="col-md-4">
                 <div class="well">
                     <h4>Audio Sermons</h4>
 yes;

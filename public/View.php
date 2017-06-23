@@ -36,7 +36,7 @@ Layout::pageTop('Csc206 Project');
                 $startDate= $row['startDate'];
                 $endDate= $row['endDate'];
 				$realStartDate = date('m-d-y',strtotime($startDate));
-				$realEndDate = date('m-d-y',strtotime($endDate));
+				$realEndDate = date("g:i A", strtotime($endDate));
 				$image = '/images/' . $row['image'];
 				
                 echo <<<post
@@ -89,6 +89,7 @@ options;
 		layout::pageSide('Csc206 Project');	
 		echo <<<yes
 		<!-- Side Widget Well -->
+		<div class="col-md-4">
                 <div class="well">
                     <h4>Audio Sermons</h4>
 yes;

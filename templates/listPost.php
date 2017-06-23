@@ -38,7 +38,7 @@ public static function story($data)
         $startDate = $data['startDate'];
         $endDate = $data['endDate'];
 		$realStartDate = date('m-d-y',strtotime($startDate));
-		$realEndDate = date('m-d-y', strtotime($endDate));
+		$realEndDate = $endDate;
 			
     if (isset($_SESSION['users'])){
 		echo <<<story
@@ -53,7 +53,7 @@ public static function story($data)
 					 
                 </div>
             </div>
-			</tr>.
+			</tr>
 story;
 	}
 	else{
@@ -70,7 +70,7 @@ story;
 					 
                 </div>
             </div>
-			</tr>.
+			</tr>
 story;
 	}
 		

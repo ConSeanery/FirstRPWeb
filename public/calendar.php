@@ -26,7 +26,7 @@ Layout::pageTop('Csc206 Project');
  
 
 <?php
-
+date_default_timezone_set('America/Los_Angeles');
 $month= date ("m");
 $year=date("Y");
 $day=date("d");
@@ -59,7 +59,6 @@ $posts = $db->query($sql);
 
 
 while ($post = $posts->fetch()){
-
 if ($d > 9){ if ( "$year-$month-$d 00:00:00" == $post['startDate'] ){$postTitle  = "<p>". $post['title']. "</p>"; $id = $post['id']; $linkId = '/View.php?id='. $id;}}
 else if ($d < 10){
 if ( "$year-$month-0$d 00:00:00" == $post['startDate'] ){$postTitle  = "<p>" .$post['title'] ."</p>"; $id = $post['id']; $linkId = '/View.php?id='. $id;}}
@@ -77,7 +76,7 @@ echo '</table>';
 ?>
 
 
-
+<a href="calendarNEXT.php">-Next-</a>
 
 	</div>
 			
@@ -86,6 +85,7 @@ echo '</table>';
 		layout::pageSide('Csc206 Project');	
 		echo <<<yes
 		<!-- Side Widget Well -->
+		<div class="col-md-4">
                 <div class="well">
                     <h4>Audio Sermons</h4>
 yes;

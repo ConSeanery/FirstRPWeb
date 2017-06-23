@@ -26,7 +26,7 @@ Layout::pageTop('Csc206 Project');
 ?>
 
     <div class="container top25">
-        <div class="col-md-8">
+      
             <section class="content">
 
                 <?php
@@ -66,37 +66,8 @@ Layout::pageTop('Csc206 Project');
 
 
             </section>
-			
-   
+		
 		</div>
-		
-		
-		<?php
-		
-		layout::pageSide('Csc206 Project');	
-		echo <<<yes
-		<!-- Side Widget Well -->
-                <div class="well">
-                    <h4>Audio Sermons</h4>
-yes;
-					
-while ($sermon = $sermons->fetch()) {
-         // Call the method to create the layout for a post
-          News::sermon($sermon);
-		   
-     }		 
-	 
-	 echo <<<end
-					
-                </div>
-            </div>
-        </div>
-				
-			<!-- /.row -->
-
-        <hr>
-end;
-?>
     </div>
 
 <?php
@@ -160,8 +131,36 @@ function showForm($data = null)
     
         </fieldset>
     </form>
+	
 postform;
 
 
-Layout::pageBottom('CSC206 Project');
+
+
 }
+
+?>
+
+
+<?php
+		layout::pageSide('Csc206 Project');	
+		echo <<<yes
+		<!-- Side Widget Well -->
+		 
+yes;
+					
+
+	 
+	 echo <<<end
+					
+            </div>
+       
+	
+			<!-- /.row -->
+
+        <hr>
+end;
+?>
+<?php
+Layout::pageBottom('CSC206 Project');
+?>

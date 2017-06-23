@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `audio`;
 CREATE TABLE `pages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(128) NOT NULL,
-  `url` varchar(512) DEFAULT NULL,
+  `url` varchar(128) DEFAULT NULL,
    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `posts`;
 CREATE TABLE `posts` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `content` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `content` varchar(8000) COLLATE utf8_unicode_ci NOT NULL,
   `image` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `userId` int(10) NOT NULL,
   `startDate` timestamp NULL DEFAULT NULL,

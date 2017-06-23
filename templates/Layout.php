@@ -7,10 +7,38 @@ class layout{
 	
 	public static function pageSide()
     {
-		
+
+	
+	if (isset($_SESSION["users"])){
+		 echo <<<SideOptions
 		 
-		
-		
+		 <!-- Blog Categories Well -->
+		 <div class="col-md-4">
+                <div class="well">
+                    <h4>Admin Tools</h4>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="audioLinks">
+                                <a href="logout.php">Logout</a>
+                             </div>  
+							 <div class="audioLinks">
+								 <a href="createPost.php">Post Event</a></div>
+                              <div class="audioLinks">  
+								<a href="createAudio.php">Post Sermon</a></div>  
+							</div>								
+                        
+                  	  </div>
+                </div>
+			</div>
+			
+			
+			
+                    <!-- /.row -->
+                
+SideOptions;
+	}
+	
+	
 		echo <<<SideStuff
 		
 		
@@ -35,13 +63,17 @@ class layout{
 					is comprised of people who hunger to explore God's Word,
 					are excited to worship, eager to welcome visitors and new believers,
 					and committed to being a witness for Christ in their community and world.</p> 
-                                
-                     
+                                           
                     </div>
-					
                 </div>
-				
-				
+				 <div class="well">
+                    <h4>Vacation Bible School</h4>
+                    <div class="input-group">
+                        
+                    <p>(Put VBS link here)</p> 
+                                           
+                    </div>
+                </div>
 				<div class="well">
                     <h4>Location</h4>
                     <div class="input-group">
@@ -56,36 +88,13 @@ class layout{
                 </div>
 				
 				
-                
-				
-                
+            </div>    
 		
 SideStuff;
+
+
 	
-		 if (isset($_SESSION["users"])){
-		 echo <<<SideOptions
-		 <!-- Blog Categories Well -->
-                <div class="well">
-                    <h4>Options</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                            
-                                <li><a href="logout.php">Logout</a>
-                                </li>
-								 <li><a href="createPost.php">Post Event</a>
-                                </li>
-                                <li><a href="deleteUser.php">Delete Account</a>
-                                </li>
-								<li><a href="createAudio.php">Post Sermon</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- /.row -->
-                </div>
-SideOptions;
-	}}
+		 }
     public static function pageTop()
     {
 		$nameTag = "";
@@ -125,50 +134,66 @@ SideOptions;
                     <span class="icon-bar"><a class="navbarMan" href="index.php"><img src="images/youtube-icon.png" width="40" height="40"></a></span>
                     <span class="icon-bar"></span>
                 </button>
-				
                 <a class="navbarMan" href="index.php">Home</a>
 				<a class="navbarMan" href="calendar.php">Calendar</a>
 				<a class="navbarMan" href="tablePage.php">Events</a>
 				<a class="navbarMan" href="audioPage.php">Sermons</a>
-				
-				
-				
-				
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 
-				
 				<div class="nameTag">
 				$nameTag
 				</div>
-				
             </div>
-			
-            <!-- /.navbar-collapse -->
-        
-        <!-- /.container -->
     </nav>
 
 <!-- Page Content -->
     <div class="container">
-
         <div class="row">
-
             <!-- Blog Entries Column -->
             <div class="col-md-8">
-		
+				<div class="frontImage">
+				<h2>
+                 
+					<div class="slideshow-container">
+	<div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="images/HeaderFirstRP.jpg" alt="" width="700" height="425">
+    <div class="text"></div>
+  </div>
+  
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="images/HeaderTop.jpg" alt="" width="700" height="425" width="100%">
+    <div class="text"></div>
+  </div>
 
-                <h1 class="page-header" font="ariel">
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="images/HeaderTop.jpg" alt="" width="700" height="425">
+    <div class="text"></div>
+  </div>
+  
+  
+	 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+</div>  
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+</h2>
+			
+			<h1 class="page-header" font="ariel">
                     First Reformed Presbyterian Church
                     <small></small>
                 </h1>
-				<div class="frontImage">
-				<h2>
-                    <a href="index.php"><img src="images/HeaderTop.jpg" alt="" width="700" height="425"></a>
-                </h2>
-				</div>
-				
+			
 PageTop;
     }
 
@@ -181,7 +206,7 @@ PageTop;
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="loginPage.php">Admin login</a>
+                    <a href="loginPage.php">admin</a>
 					<a class="navbarMan" href="https://www.facebook.com/firstrpchurch/"><img src="images/facebook-icon.png" width="40" height="40"></a>
 				<a class="navbarMan" href="index.php"><img src="images/youtube-icon.png" width="40" height="40"></a>
                 </div>
@@ -196,7 +221,7 @@ PageTop;
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-
+	<script src="js/slides.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 

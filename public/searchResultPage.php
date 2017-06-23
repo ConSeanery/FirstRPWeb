@@ -100,6 +100,7 @@ listAudio::endTable('Csc206 Project');
 		layout::pageSide('Csc206 Project');	
 		echo <<<yes
 		<!-- Side Widget Well -->
+		<div class="col-md-4">
                 <div class="well">
                     <h4>Audio Sermons</h4>
 yes;

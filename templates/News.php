@@ -26,7 +26,8 @@ class news
 		$startDate = $data['startDate'];
 		$endDate = $data['endDate'];
 		$realStartDate = date('m-d-y',strtotime($startDate));
-		$realEndDate = date('m-d-y',strtotime($endDate));
+		$realEndDate = date("g:i A", strtotime($endDate));
+		
 		$image = '/images/' . $data['image'];
 		
         echo <<<story
@@ -38,7 +39,7 @@ class news
 			<div class="col-sm-8"><p>$content</p></div>
 			</div>
 			<div class="topTenDates">
-			<p>Event starts at $realStartDate and ends on $realEndDate</p>
+			<p>Event starts on $realStartDate at $realEndDate</p>
 			</div>
 			
         </div>    

@@ -91,33 +91,11 @@ Layout::pageTop('Csc206 Project');
 				
                 ?>
 				</section>
-		
-		<?php
-		layout::pageSide('Csc206 Project');	
-		echo <<<yes
-		<!-- Side Widget Well -->
-                <div class="well">
-                    <h4>Audio Sermons</h4>
-yes;
-					
-while ($sermon = $sermons->fetch()) {
-         // Call the method to create the layout for a post
-          News::sermon($sermon);
-		   
-     }		 
-	 
-	 echo <<<end
-					
-                </div>
-            </div>
-        </div>
+				</div>
+				</div>
 				
-			<!-- /.row -->
-
-        <hr>
-end;
-?>
-    
+		
+		
 
 <?php
 // Generate the page footer
@@ -130,7 +108,7 @@ $fields = [
     'title'     => ['required', 'string'],
     'content'   => ['required', 'string'],
     'startDate' => ['required', 'date'],
-    'endDate'   => ['required', 'date'],
+    'endDate'   => ['required', 'time'],
 	//'image'     => ['string']
 ];
 /**
@@ -169,17 +147,17 @@ function showForm($data = null)
 		</div>
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-3 control-label" for="startDate">Effective Date</label>
+                <label class="col-md-3 control-label" for="startDate">Event Date</label>
                 <div class="col-md-8">
-                    <input id="startDate" name="startDate" type="text" placeholder="yyyy/mm/dd" value="$startDate" class="form-control input-md" required="">
+                    <input id="startDate" name="startDate" type="date" placeholder="yyyy/mm/dd" value="$startDate" class="form-control input-md" required="">
                 </div>
             </div>
     
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-3 control-label" for="endDate">End Date</label>
+                <label class="col-md-3 control-label" for="endDate">Time</label>
                 <div class="col-md-8">
-                    <input id="endDate" name="endDate" type="text" placeholder="yyyy/mm/dd" value="$endDate" class="form-control input-md">
+                    <input id="endDate" name="endDate" type="time" value="$endDate" class="form-control input-md">
                 </div>
             </div>
     
@@ -204,5 +182,35 @@ function showForm($data = null)
 postform;
 
 
-Layout::pageBottom('CSC206 Project');
 }
+
+?>
+
+<?php
+		layout::pageSide('Csc206 Project');	
+		echo <<<yes
+		<!-- Side Widget Well -->
+			<div class="col-md-4">
+                <div class="well">
+                    <h4>Audio Sermons</h4>
+yes;
+					
+while ($sermon = $sermons->fetch()) {
+         // Call the method to create the layout for a post
+          News::sermon($sermon);
+		   
+     }		 
+	 
+	 echo <<<end
+					
+                </div>
+            </div>
+        </div>
+				
+			<!-- /.row -->
+
+        <hr>
+end;
+Layout::pageBottom('CSC206 Project');
+?>
+    
