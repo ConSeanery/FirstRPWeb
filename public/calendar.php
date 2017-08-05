@@ -21,9 +21,13 @@ $sermons = $db->query($sql2);
 Layout::pageTop('Csc206 Project');
 
 ?>
+
+
+   
+        <section class="content">
  <h1>News and Events</h1>
  
- 
+
 
 <?php
 date_default_timezone_set('America/Los_Angeles');
@@ -35,7 +39,7 @@ echo '<font face="arial" size="2">';
 echo '<table class="" align="center" border="0" cellpadding=5 cellspacing=5 style="" class="calendar"><tr>';
 echo "<h3>Today: ".date("F d Y ",mktime(0,0,0,$month,$day,$year)). "</h3>";
 echo '</tr></table>';
-echo '<table align="center" border="0" cellpadding=1 cellspacing=1 style="border:1px solid #CCCCCC">
+echo '<table class="calendar" align="center" border="0" cellpadding=1 cellspacing=1 style="border:1px solid #CCCCCC">
 <tr class="calendarHead" bgcolor="#EFEFEF">
 <td align=center>Sunday</td>
 <td align=center>Monday</td>
@@ -79,7 +83,8 @@ echo '</table>';
 <a href="calendarNEXT.php">-Next-</a>
 
 	</div>
-			
+
+
 				<!--The Side Well -->
 		<?php
 		layout::pageSide('Csc206 Project');	

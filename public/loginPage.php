@@ -53,6 +53,11 @@ GoodKid;
 				
 				
                echo <<<postform
+			  <div class="frontImage"><img src="images/admin-icon.jpg"></div>
+			  <p>Note: Login functions are for administrator use only are RESTRICTED to staff and developer purposes. 
+			  All neccessary functions are available for any user not meeting these conditions. For information and posts please navigate to the HOME page. </p> 
+			  
+			   
     <form id="GetUserLogin" action='loginPage.php' method="POST" class="form-horizontal">
         <fieldset>
     

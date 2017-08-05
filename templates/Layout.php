@@ -80,7 +80,7 @@ SideOptions;
                     <div class= "imageLink">    
                     <a href="https://www.google.com/maps/place/First+Reformed+Presbyterian/@40.7428695,-80
 					.333732,15z/data=!4m5!3m4!1s0x0:0x69fc3ae743168634!8m2!3d40.7428695!4d-80.333732">
-					<img src="images/locationMap.png" height="160" width = "320"></a>
+					<img src="images/locationMap.png" ></a>
                     </div>          
                      
                     </div>
@@ -128,12 +128,6 @@ SideStuff;
         
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"><a class="navbarMan" href="https://www.facebook.com/firstrpchurch/"><img src="images/facebook-icon.png" width="40" height="40"></a></span>
-                    <span class="icon-bar"><a class="navbarMan" href="index.php"><img src="images/youtube-icon.png" width="40" height="40"></a></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <a class="navbarMan" href="index.php">Home</a>
 				<a class="navbarMan" href="calendar.php">Calendar</a>
 				<a class="navbarMan" href="tablePage.php">Events</a>
@@ -154,24 +148,30 @@ SideStuff;
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 				<div class="frontImage">
+				<div class="invisible-header">
+			<p> First Reformed Presbyterian Church</p>
+			</div>
+			<div class="page-header">
+			<p> First Reformed Presbyterian Church</p>
+			</div>
 				<h2>
                  
 					<div class="slideshow-container">
 	<div class="mySlides fade">
     <div class="numbertext">2 / 3</div>
-    <img src="images/HeaderFirstRP.jpg" alt="" width="700" height="425">
+    <img src="images/HeaderFirstRP.jpg" alt="" >
     <div class="text"></div>
   </div>
   
   <div class="mySlides fade">
     <div class="numbertext">1 / 3</div>
-    <img src="images/HeaderTop.jpg" alt="" width="700" height="425" width="100%">
+    <img src="images/HeaderTop.jpg" alt="" >
     <div class="text"></div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">3 / 3</div>
-    <img src="images/HeaderTop.jpg" alt="" width="700" height="425">
+    <img src="images/HeaderTop.jpg" alt="">
     <div class="text"></div>
   </div>
   
@@ -189,10 +189,7 @@ SideStuff;
 </div>
 </h2>
 			
-			<h1 class="page-header" font="ariel">
-                    First Reformed Presbyterian Church
-                    <small></small>
-                </h1>
+			
 			
 PageTop;
     }
@@ -206,9 +203,10 @@ PageTop;
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="loginPage.php">admin</a>
-					<a class="navbarMan" href="https://www.facebook.com/firstrpchurch/"><img src="images/facebook-icon.png" width="40" height="40"></a>
+                    
+				<a class="navbarMan" href="https://www.facebook.com/firstrpchurch/"><img src="images/facebook-icon.png" width="40" height="40"></a>
 				<a class="navbarMan" href="index.php"><img src="images/youtube-icon.png" width="40" height="40"></a>
+				<a class="navbarMan" href="loginPage.php"><img src="images/settings-icon.jpg" width="40" height="40"></a>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
